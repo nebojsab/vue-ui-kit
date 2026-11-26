@@ -3,7 +3,12 @@
 All notable changes to this project. The format follows [Keep a Changelog](https://keepachangelog.com/)
 and the project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [2.0.0] — 2026-11-26 · [npm](https://www.npmjs.com/package/@nebojsab/vue-ui-kit/v/2.0.0)
+
+### Migrating from 1.x
+- Remove any imports of `Swoosh`, `FlowLines` or `LightStreak`. For a decorative backdrop, use the
+  `bg-brand-hero` (theme-aware), `bg-brand-vivid`, `bg-brand-night`, `bg-brand-aurora` or `bg-brand-soft` classes.
+- Nothing else changes: every component, prop and token from 1.0.0 works the same.
 
 ### Added
 - **Templates** in the docs: Dashboard, Settings, Sign in and Projects (list + edit drawer). These are full
@@ -15,8 +20,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Type declarations name kebab-case events correctly (`onRowClick`, `onSignOut`).
 
 ### Removed
-- **Breaking:** the art components `Swoosh`, `FlowLines` and `LightStreak`. They came from the original brand, so the next
-  release is 2.0.0. A featured `StatCard` keeps its gradient backdrop, but no longer draws a light streak.
+- **Breaking:** the art components `Swoosh`, `FlowLines` and `LightStreak`, which came from the original brand.
+  A featured `StatCard` keeps its gradient backdrop, but no longer draws a light streak.
 
 ## [1.0.0] — 2026-11-26 · [npm](https://www.npmjs.com/package/@nebojsab/vue-ui-kit/v/1.0.0)
 
