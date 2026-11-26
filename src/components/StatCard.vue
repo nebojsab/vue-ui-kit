@@ -3,16 +3,11 @@
     :class="[
       'relative isolate overflow-hidden rounded-card border p-5 flex flex-col gap-3 min-w-0',
       featured
-        ? 'bg-brand-hero border-brand/25 dark:border-white/10 shadow-[0_20px_50px_-30px_rgb(0_194_239/0.6)]'
+        ? 'bg-brand-hero border-brand/25 dark:border-white/10 shadow-[0_20px_50px_-30px_rgb(var(--ui-brand)/0.6)]'
         : tone === 'reward' ? 'bg-reward-fill/[0.06] border-reward-fill/30' : 'bg-surface-1 border-line',
     ]"
   >
-    <!-- Featured: brand backdrop (Trust light / Pulse dark) + light streak -->
-    <LightStreak
-      v-if="featured"
-      class="absolute -z-10 inset-x-0 bottom-0 w-full h-[75%] opacity-50 dark:opacity-80"
-      :paths="['M -40 330 C 300 320 640 250 1040 40']"
-    />
+    <!-- Featured: hero gradient backdrop (soft in light, night in dark) -->
     <!-- Header row -->
     <div class="flex items-center justify-between gap-2">
       <p :class="['text-overline truncate', featured ? 'text-brand' : tone === 'reward' ? 'text-reward' : 'text-fg-2']">{{ label }}</p>
@@ -61,7 +56,6 @@
 
 <script setup>
 import { computed } from 'vue'
-import LightStreak from '../art/LightStreak.vue'
 
 const props = defineProps({
   label: { type: String, required: true },

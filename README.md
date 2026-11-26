@@ -100,7 +100,7 @@ Organised by [Atomic Design](https://nebojsab.github.io/vue-ui-kit/):
 | **Molecules** | Form Field · Date Input · Combobox · Radio Card · Toggle Group · Copy Button · Tabs · View Tabs · Segment Control · Breadcrumbs · Pagination · Dropdown Menu · Filter Chip · Filter Tile · Alert · Accordion · Stat Card · Info Chip · Progress Bar · Empty State · Period Tabs · Countdown · XP Bar · Reward Box |
 | **Organisms** | Modal · Confirm Dialog · Drawer · Popover · Toast · Sidebar · Bottom Nav · Sticky Bar · Back to Top · User Menu · Data Table |
 | **Templates** | [Dashboard](https://nebojsab.github.io/vue-ui-kit/template-dashboard/) · [Settings](https://nebojsab.github.io/vue-ui-kit/template-settings/) · [Sign in](https://nebojsab.github.io/vue-ui-kit/template-sign-in/) · [Projects](https://nebojsab.github.io/vue-ui-kit/template-projects/). These are full pages with copy-paste source, previewed at desktop, tablet and phone widths |
-| **Extras** | `useInfiniteList` · `useStuck` · `useFloating` · `toast()` · art (`FlowLines`, `LightStreak`) · `KitLogo` / `BrandLogo` |
+| **Extras** | `useInfiniteList` · `useStuck` · `useFloating` · `toast()` · `KitLogo` / `BrandLogo` |
 
 ## Theming
 

@@ -58,10 +58,6 @@ export { default as AppXpBar } from './components/AppXpBar.vue'
 export { default as DataTable } from './components/DataTable.vue'
 export { default as StatCard } from './components/StatCard.vue'
 
-// ── Brand art ────────────────────────────────────────────────────────────
-export { default as FlowLines } from './art/FlowLines.vue'
-export { default as LightStreak } from './art/LightStreak.vue'
-
 // ── Logo ─────────────────────────────────────────────────────────────────
 export { default as BrandLogo } from './logo/BrandLogo.vue'
 export { default as KitLogo } from './logo/KitLogo.vue'

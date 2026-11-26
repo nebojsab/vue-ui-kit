@@ -600,19 +600,6 @@ export interface StatCardProps {
 }
 export declare const StatCard: DefineComponent<StatCardProps>
 
-export interface FlowLinesProps {
-  lines?: number
-  /** Pointer influence radius, px */
-  radius?: number
-}
-export declare const FlowLines: DefineComponent<FlowLinesProps>
-
-export interface LightStreakProps {
-  /** One or more SVG path strings in a 1000×400 box; the first is the brightest */
-  paths?: any[]
-}
-export declare const LightStreak: DefineComponent<LightStreakProps>
-
 export interface BrandLogoProps {
   /** Raw SVG strings (import '…/logo-wordmark.svg?raw') */
   wordmark: string

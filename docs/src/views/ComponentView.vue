@@ -334,7 +334,7 @@ const componentData = {
       { name: 'color', type: "'brand' | 'success' | 'warning' | 'danger' | 'neutral' | 'reward'", default: "'neutral'", description: 'Color scheme of the badge' },
       { name: 'size', type: "'xs' | 'sm' | 'md'", default: "'sm'", description: 'Size of the badge' },
       { name: 'dot', type: 'Boolean', default: 'false', description: 'Shows a colored dot before the label' },
-      { name: 'icon', type: 'Component', default: 'null', description: 'Leading Heroicon, sized to the badge — e.g. a user icon before a count (since 1.7)' },
+      { name: 'icon', type: 'Component', default: 'null', description: 'Leading Heroicon, sized to the badge — e.g. a user icon before a count' },
     ],
     stories: [
       {
@@ -1669,7 +1669,7 @@ mb-8  → 32px  between page sections`,
   // ── Stat Card ────────────────────────────────────────────────────────────
   'stat-card': {
     title: 'Stat Card',
-    description: 'A single KPI: label, big display-font value, optional sub-label and extra content (e.g. an XP bar) in the default slot. The reward tone turns the card gold — use it only for points. `featured` marks the most important metric on the page with the brand backdrop (Trust in light, Pulse in dark) and a light streak.',
+    description: 'A single KPI: label, big display-font value, optional sub-label and extra content (e.g. an XP bar) in the default slot. The reward tone turns the card gold — use it only for points. `featured` marks the most important metric on the page with the hero gradient backdrop (soft in light, night in dark) and a gradient value.',
     whenToUse: [
       'KPI rows (Activities, Pipeline, Total points)',
       'One number that answers one question',
@@ -1686,7 +1686,7 @@ mb-8  → 32px  between page sections`,
       { name: 'sublabel', type: 'String', default: 'null', description: 'Muted line under the value' },
       { name: 'icon', type: 'Component', default: 'null', description: 'Heroicon shown top-right' },
       { name: 'tone', type: "'default' | 'reward'", default: "'default'", description: 'Reward = gold card for points' },
-      { name: 'featured', type: 'Boolean', default: 'false', description: 'Most important metric in the row — brand gradient backdrop, light streak, gradient value' },
+      { name: 'featured', type: 'Boolean', default: 'false', description: 'Most important metric in the row — hero gradient backdrop and a gradient value' },
     ],
     stories: [
       {
@@ -1707,7 +1707,7 @@ mb-8  → 32px  between page sections`,
       },
       {
         name: 'Featured',
-        description: 'One per row: the metric the page is really about. Follows the theme — Trust gradient in light, Pulse in dark.',
+        description: 'One per row: the metric the page is really about. Follows the theme — a soft indigo gradient in light, a night gradient in dark.',
         snippet: `<StatCard label="Activities" :value="35" sublabel="This month" />
 <StatCard featured label="Pipeline influenced" value="£67k" sublabel="This month" :icon="BriefcaseIcon" />
 <StatCard label="Next booked" value="5 Oct" sublabel="Qualification Call · in 2 days" />`,
@@ -2308,7 +2308,7 @@ toast('Salesforce sync failed', 'danger')`,
       { name: 'isActive', type: '(item) => Boolean', default: 'null', description: "Custom active check. Default: path prefix match, '/' exact" },
       { name: 'homeTo / homeLabel', type: 'String', default: "'/' · 'Home'", description: 'Logo link and its accessible name' },
       { name: 'navLabel / toolsLabel', type: 'String', default: "'Main' · 'Tools'", description: 'aria-label of the two <nav>s' },
-      { name: 'brand', type: 'Boolean', default: 'false', description: 'Brand gradient when open; on the compact rail (and always below lg) a solid fill from the same gradient — Flow blue in light, deep navy #1E1B4B in dark. Since 1.9' },
+      { name: 'brand', type: 'Boolean', default: 'false', description: 'Brand gradient when open; on the compact rail (and always below lg) a solid fill instead — indigo-100 in light, deep indigo #1E1B4B in dark' },
       { name: '#logo="{ collapsed }"', type: 'Slot', default: '—', description: 'Rendered twice: full logo (collapsed false) and the rail mark (collapsed true)' },
       { name: '#bottom="{ collapsed }"', type: 'Slot', default: '—', description: 'Extra content at the bottom of the panel (e.g. support, a user menu)' },
     ],
@@ -2773,7 +2773,7 @@ watch(open, (v) => (v ? start() : stop()))
       { name: 'open', type: "'first' | 'all' | 'none'", default: "'first'", description: 'Groups open at the start' },
       { name: 'inset', type: 'String', default: "'px-6 sm:px-7'", description: 'Side padding — match the card or modal around it' },
       { name: 'disabled · bulk', type: 'Boolean', default: 'false · true', description: 'Read-only · Turn all on/off' },
-      { name: 'variant', type: "'flush' | 'cards'", default: "'flush'", description: 'flush — groups edge to edge; cards — each group its own card with a gap, the name as a title and n/total as a pill. Since 1.11' },
+      { name: 'variant', type: "'flush' | 'cards'", default: "'flush'", description: 'flush — groups edge to edge; cards — each group its own card with a gap, the name as a title and n/total as a pill.' },
     ],
     stories: [
       {
@@ -2798,7 +2798,7 @@ watch(open, (v) => (v ? start() : stop()))
   // ── Card ─────────────────────────────────────────────────────────────────
   card: {
     title: 'Card',
-    description: '.card is the surface for grouped content: surface-1, a line border, the card radius. Add .card-interactive when the whole card is a link or button — it lifts on hover and gets a brand ring on keyboard focus (since 1.7).',
+    description: '.card is the surface for grouped content: surface-1, a line border, the card radius. Add .card-interactive when the whole card is a link or button — it lifts on hover and gets a brand ring on keyboard focus.',
     whenToUse: ['.card — sections of a page, panels, list containers', '.card-interactive — grids where each card opens something (documents, vendors)'],
     whenNotTo: ["Don't make a card interactive and also put buttons inside it — pick one", "Don't nest cards"],
     props: [

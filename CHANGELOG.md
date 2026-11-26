@@ -15,7 +15,8 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - Type declarations name kebab-case events correctly (`onRowClick`, `onSignOut`).
 
 ### Removed
-- **Breaking:** `Swoosh` art component. It came from the original brand, so the next release is 2.0.0.
+- **Breaking:** the art components `Swoosh`, `FlowLines` and `LightStreak`. They came from the original brand, so the next
+  release is 2.0.0. A featured `StatCard` keeps its gradient backdrop, but no longer draws a light streak.
 
 ## [1.0.0] — 2026-11-26 · [npm](https://www.npmjs.com/package/@nebojsab/vue-ui-kit/v/1.0.0)
 
