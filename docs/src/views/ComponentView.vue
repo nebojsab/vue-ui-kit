@@ -6,7 +6,7 @@
       <aside class="hidden lg:flex flex-col w-52 flex-shrink-0">
         <div class="sticky-aside scroll-thin w-full space-y-1 pr-1">
           <div class="mb-4 px-3">
-            <p class="text-overline text-brand">Internal</p>
+            <p class="text-overline text-brand">Open source</p>
             <p class="text-sm font-semibold text-fg mt-0.5">Design System</p>
             <p class="text-xs text-subtle mt-0.5">Vue 3 + Tailwind CSS</p>
           </div>
@@ -136,6 +136,10 @@ import {
 } from '@heroicons/vue/24/outline'
 import AppLayout from '../DocsLayout.vue'
 import { iconsDoc } from './iconsDoc'
+import { moleculesDocs } from './docs/molecules'
+import { foundationsDocs } from './docs/foundations'
+import { guidesDocs } from './docs/guides'
+import { navGroups } from '../nav'
 const territory = (region) => `Acme - ${region}`
 import AppButton from '@ds/components/AppButton.vue'
 import Swoosh from '@ds/art/Swoosh.vue'
@@ -189,107 +193,7 @@ import { RECORD_STYLE, COMPANY_STYLE } from '../activityStyles'
 const route = useRoute()
 const slug = computed(() => route.params.slug)
 
-// ── Nav structure ─────────────────────────────────────────────────────────
-const navGroups = [
-  {
-    label: 'Foundations',
-    items: [
-      { slug: 'colors',     label: 'Color Tokens' },
-      { slug: 'typography', label: 'Typography'   },
-      { slug: 'spacing',    label: 'Spacing Scale' },
-      { slug: 'icons',      label: 'Iconography' },
-    ],
-  },
-  {
-    label: 'Atoms',
-    items: [
-      { slug: 'button',   label: 'Button' },
-      { slug: 'badge',    label: 'Badge' },
-      { slug: 'avatar',   label: 'Avatar' },
-      { slug: 'input',    label: 'Input' },
-      { slug: 'date-input', label: 'Date Input' },
-      { slug: 'textarea', label: 'Textarea' },
-      { slug: 'combobox', label: 'Combobox' },
-      { slug: 'select',   label: 'Select' },
-      { slug: 'toggle',   label: 'Toggle' },
-      { slug: 'checkbox', label: 'Checkbox' },
-      { slug: 'divider',  label: 'Divider' },
-      { slug: 'spinner',  label: 'Spinner' },
-      { slug: 'skeleton', label: 'Skeleton' },
-      { slug: 'stat-card', label: 'Stat Card' },
-      { slug: 'data-table', label: 'Data Table' },
-      { slug: 'card', label: 'Card' },
-    ],
-  },
-  {
-    label: 'Forms',
-    items: [
-      { slug: 'form-field',  label: 'Form Field' },
-      { slug: 'empty-state', label: 'Empty State' },
-      { slug: 'toggle-group', label: 'Toggle Group' },
-    ],
-  },
-  {
-    label: 'Interaction',
-    items: [
-      { slug: 'chip',            label: 'Chip' },
-      { slug: 'filter-chip',     label: 'Filter Chip' },
-      { slug: 'filter-tile',     label: 'Filter Tile' },
-      { slug: 'info-chip',       label: 'Info Chip' },
-      { slug: 'segment-control', label: 'Segment Control' },
-      { slug: 'view-tabs',       label: 'View Tabs' },
-      { slug: 'radio-card',      label: 'Radio Card' },
-      { slug: 'copy-button',     label: 'Copy Button' },
-    ],
-  },
-  {
-    label: 'Overlays',
-    items: [
-      { slug: 'modal',  label: 'Modal' },
-      { slug: 'confirm-dialog', label: 'Confirm Dialog' },
-      { slug: 'drawer', label: 'Drawer' },
-      { slug: 'popover', label: 'Popover' },
-      { slug: 'toast',  label: 'Toast' },
-    ],
-  },
-  {
-    label: 'Layout',
-    items: [
-      { slug: 'sidebar',     label: 'Sidebar' },
-      { slug: 'bottom-nav',  label: 'Bottom Nav' },
-      { slug: 'sticky-bar',  label: 'Sticky Bar' },
-      { slug: 'back-to-top', label: 'Back to Top' },
-      { slug: 'user-menu', label: 'User Menu' },
-    ],
-  },
-  {
-    label: 'Brand art',
-    items: [
-      { slug: 'swoosh', label: 'Swoosh' },
-    ],
-  },
-  {
-    label: 'Gamification',
-    items: [
-      { slug: 'period-tabs', label: 'Period Tabs' },
-      { slug: 'countdown',   label: 'Countdown' },
-      { slug: 'reward-box',  label: 'Reward Box' },
-    ],
-  },
-  {
-    label: 'Feedback',
-    items: [
-      { slug: 'progress', label: 'Progress Bar' },
-      { slug: 'xp-bar',   label: 'XP Bar' },
-    ],
-  },
-  {
-    label: 'Composables',
-    items: [
-      { slug: 'composables', label: 'Composables' },
-    ],
-  },
-]
+// ── Nav structure (shared with HomeView) ────────────────────────────────
 
 // ── Demo reactive state (defined before componentData so closures work) ───
 const demoTags      = ref(['Vue 3', 'Tailwind', 'Pinia', 'Vite'])
@@ -343,6 +247,9 @@ function removeTag(tag) {
 
 // ── Component data ────────────────────────────────────────────────────────
 const componentData = {
+  ...guidesDocs,
+  ...foundationsDocs,
+  ...moleculesDocs,
   icons: iconsDoc,
 
   // ── Button ──────────────────────────────────────────────────────────────

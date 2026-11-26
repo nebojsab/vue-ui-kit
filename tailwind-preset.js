@@ -128,9 +128,10 @@ export default {
         'xl': '0.75rem',
         '2xl': '1rem',
         '3xl': '1.25rem',
-        control: '0.75rem',  // 12px — buttons, inputs, segments
-        card: '1.25rem',     // 20px — cards
-        panel: '1.5rem',     // 24px — large sections
+        // Named radii are CSS variables (styles.css) so a theme can reshape the kit
+        control: 'var(--ui-radius-control, 0.75rem)',  // 12px — buttons, inputs, segments
+        card: 'var(--ui-radius-card, 1.25rem)',        // 20px — cards
+        panel: 'var(--ui-radius-panel, 1.5rem)',       // 24px — large sections
       },
 
       // ── Backdrop blur ─────────────────────────────────────────────────
