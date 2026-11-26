@@ -1,0 +1,242 @@
+/* Vue UI Kit — tokens, gradients, base styles and utilities.
+   Import once, at the top of the app's main CSS, before the @tailwind directives:
+
+     @import '@nebojsab/vue-ui-kit/styles.css';
+     @tailwind base;
+     @tailwind components;
+     @tailwind utilities;
+
+   The @layer blocks below are picked up by the app's Tailwind build. */
+
+/* Fonts — Inter, self-hosted */
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+
+/* ── Theme tokens ──────────────────────────────────────────────────────────
+   RGB channels only, consumed by tailwind-preset.js as
+   rgb(var(--ui-x) / <alpha-value>). Add a token here AND in the preset.
+
+   Palette: slate neutrals + indigo accent (Tailwind scales).
+   Light mode uses indigo-600 for the action colour (white text 6.3:1),
+   dark mode indigo-400 with dark text.                                     */
+@layer base {
+  :root {
+    /* light — slate-50 page, white cards */
+    --ui-page:        248 250 252;   /* slate-50 */
+    --ui-surface-1:   255 255 255;
+    --ui-surface-2:   241 245 249;   /* slate-100 */
+    --ui-surface-3:   226 232 240;   /* slate-200 */
+    --ui-border:      222 227 236;
+    --ui-text:         15  23  42;   /* slate-900 */
+    --ui-text-2:       51  65  85;   /* slate-700 */
+    --ui-muted:       100 116 139;   /* slate-500 */
+    --ui-brand:        79  70 229;   /* indigo-600 */
+    --ui-brand-hover:  67  56 202;   /* indigo-700 */
+    --ui-on-brand:    255 255 255;
+    --ui-reward:      161  98   7;   /* amber-700 — gold text on light surfaces */
+    --ui-reward-fill: 251 191  36;   /* amber-400 */
+    --ui-on-reward:    15  23  42;
+    --ui-sales:        37  99 235;   /* blue-600 */
+    --ui-presales:    147  51 234;   /* purple-600 */
+    --ui-marketing:   219  39 119;   /* pink-600 */
+  }
+
+  /* Dark theme — also applied locally with .theme-dark to keep
+     "islands" (hero card, login panel) dark in both themes. */
+  html.dark,
+  .theme-dark {
+    --ui-page:         11  15  25;   /* #0B0F19 */
+    --ui-surface-1:    17  24  39;   /* #111827 */
+    --ui-surface-2:    24  32  51;   /* #182033 */
+    --ui-surface-3:    33  43  66;   /* #212B42 */
+    --ui-border:       42  52  76;   /* #2A344C */
+    --ui-text:        241 245 249;
+    --ui-text-2:      176 186 204;
+    --ui-muted:       129 140 163;
+    --ui-brand:       129 140 248;   /* indigo-400 */
+    --ui-brand-hover: 165 180 252;   /* indigo-300 */
+    --ui-on-brand:     15  23  42;
+    --ui-reward:      251 191  36;   /* amber-400 */
+    --ui-reward-fill: 251 191  36;
+    --ui-on-reward:    15  23  42;
+    --ui-sales:        96 165 250;   /* blue-400 */
+    --ui-presales:    192 132 252;   /* purple-400 */
+    --ui-marketing:   244 114 182;   /* pink-400 */
+  }
+  .theme-dark { color: rgb(var(--ui-text)); color-scheme: dark; }
+
+  /* Company kinds — aliases, so they follow light/dark and .theme-dark islands */
+  :root, .theme-dark {
+    --ui-vendor:   var(--ui-presales);
+    --ui-reseller: var(--ui-brand);
+    --ui-enduser:  245 158 11;   /* amber #F59E0B, same as warning */
+  }
+}
+
+/* ── Gradients (vivid · night · aurora · soft · hero) ─────────────────────
+   Fixed colours, not theme tokens — they are backdrops. Put light text
+   (.theme-dark) on Vivid / Night / Aurora; dark text on Soft.              */
+@layer components {
+  .bg-brand-vivid {
+    background:
+      radial-gradient(120% 90% at 15% 10%, #818CF8 0%, transparent 55%),
+      radial-gradient(90% 80% at 100% 100%, #EC4899 0%, transparent 60%),
+      linear-gradient(160deg, #4F46E5 0%, #312E81 100%);
+  }
+  .bg-brand-night {
+    background:
+      radial-gradient(70% 60% at 100% 100%, rgb(99 102 241 / 0.35) 0%, transparent 70%),
+      radial-gradient(80% 70% at 85% 95%, rgb(49 46 129 / 0.9) 0%, transparent 70%),
+      linear-gradient(170deg, #0B0F19 30%, #1E1B4B 100%);
+  }
+  .bg-brand-aurora {
+    background:
+      radial-gradient(90% 80% at 0% 0%, #312E81 0%, transparent 65%),
+      radial-gradient(70% 60% at 100% 0%, rgb(236 72 153 / 0.75) 0%, transparent 60%),
+      radial-gradient(90% 70% at 50% 110%, #38BDF8 0%, transparent 65%),
+      #312E81;
+  }
+  /* Hero surfaces that follow the theme: Soft in light, Night in dark */
+  .bg-brand-hero {
+    background:
+      radial-gradient(70% 90% at 0% 0%, #FFFFFF 0%, transparent 60%),
+      radial-gradient(60% 80% at 100% 0%, rgb(236 72 153 / 0.18) 0%, transparent 65%),
+      radial-gradient(80% 90% at 100% 100%, rgb(99 102 241 / 0.30) 0%, transparent 70%),
+      linear-gradient(135deg, #F5F7FF 0%, #E0E7FF 100%);
+  }
+  html.dark .bg-brand-hero {
+    background:
+      radial-gradient(70% 60% at 100% 100%, rgb(99 102 241 / 0.35) 0%, transparent 70%),
+      radial-gradient(80% 70% at 85% 95%, rgb(49 46 129 / 0.9) 0%, transparent 70%),
+      linear-gradient(170deg, #0B0F19 30%, #1E1B4B 100%);
+  }
+  .bg-brand-soft {
+    background:
+      radial-gradient(80% 80% at 20% 20%, #FFFFFF 0%, transparent 60%),
+      radial-gradient(70% 70% at 100% 50%, rgb(196 181 253 / 0.9) 0%, transparent 65%),
+      linear-gradient(135deg, #E0E7FF 0%, #A5B4FC 100%);
+  }
+}
+
+/* ── Base resets ───────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    @apply antialiased font-sans;
+  }
+
+  body {
+    @apply bg-page text-fg transition-colors duration-250;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  /* Focus ring — brand */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-page;
+  }
+}
+
+/* ── Utility classes ───────────────────────────────────────────────────── */
+@layer utilities {
+  /* font-mono = Inter with tabular figures — for countdowns, periods and IDs */
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Overline / label — 12px, never smaller */
+  .text-overline {
+    @apply text-label uppercase;
+  }
+
+  /* Card surfaces */
+  .card {
+    @apply bg-surface-1 border border-line rounded-card;
+  }
+
+  /* A whole card that's a link or button (grids of documents, vendors…): lifts on hover,
+     ring on keyboard focus. Use with .card: <RouterLink class="card card-interactive"> */
+  .card-interactive {
+    @apply transition-[border-color,box-shadow,transform] duration-150 outline-none
+      hover:border-brand/40 hover:shadow-[0_12px_30px_-16px_rgb(0_0_0/0.35)] hover:-translate-y-0.5
+      focus-visible:ring-2 focus-visible:ring-brand;
+  }
+
+  /* Subtle text — secondary info */
+  .text-subtle {
+    @apply text-fg-2;
+  }
+
+  /* Numbers that line up in columns */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Brand glow — use sparingly on key CTAs */
+  .glow-brand {
+    @apply shadow-glow-brand;
+  }
+
+  /* Right-hand side column that stays in view while the page scrolls.
+     Capped to the visible area (topbar 72px + 24px top/bottom) and scrolls on its
+     own if taller, so nothing gets cut off. Use with a breakpoint where the
+     column sits beside the content: lg:sticky-aside or xl:sticky-aside. */
+  .sticky-aside {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0.25rem;
+    margin: -0.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--ui-border)) transparent;
+  }
+
+  /* Thin, theme-aware scrollbar for inner scroll areas (sticky asides, panels) */
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--ui-border)) transparent;
+  }
+
+  /* Scrollbar styling for dark mode */
+  html.dark ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  html.dark ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  html.dark ::-webkit-scrollbar-thumb {
+    @apply bg-line rounded-full;
+  }
+}
+
+/* ── Brand sidebar (AppSidebar brand) ─────────────────────────────────────
+   The hero gradient when the panel is open. On the rail a gradient squeezes, so it gets a
+   solid fill instead: indigo-100 in light, deep indigo (#1E1B4B) in dark. Below lg the
+   sidebar is always the rail, so it's solid there too.
+   !important: beats .bg-brand-hero whatever the order the styles load in. */
+.sidebar-brand.is-rail {
+  background: rgb(224 231 255) !important;
+  --ui-surface-2: 255 255 255;                     /* active item: white card */
+}
+html.dark .sidebar-brand.is-rail {
+  background: rgb(30 27 75) !important;
+  --ui-surface-2: 45 42 105; --ui-surface-3: 55 52 125; --ui-border: 55 52 125;
+}
+@media (max-width: 1023.98px) {
+  .sidebar-brand {
+    background: rgb(224 231 255) !important;
+    --ui-surface-2: 255 255 255;
+  }
+  html.dark .sidebar-brand {
+    background: rgb(30 27 75) !important;
+    --ui-surface-2: 45 42 105; --ui-surface-3: 55 52 125; --ui-border: 55 52 125;
+  }
+}

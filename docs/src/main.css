@@ -1,0 +1,6 @@
+/* Docs consume the DS exactly like an app does */
+@import '@ds/styles/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
