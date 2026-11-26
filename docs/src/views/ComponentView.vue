@@ -841,7 +841,7 @@ const componentData = {
     ],
     props: [
       { name: 'label', type: 'String', default: '—', description: 'Text content of the chip' },
-      { name: 'variant', type: "'default' | 'brand' | 'success' | 'warning' | 'danger' | 'presales' | 'reward'", default: "'default'", description: 'Color variant' },
+      { name: 'variant', type: "'default' | 'brand' | 'success' | 'warning' | 'danger' | 'purple' | 'reward'", default: "'default'", description: 'Color variant' },
       { name: 'size', type: "'sm' | 'md'", default: "'md'", description: 'Size of the chip' },
       { name: 'removable', type: 'Boolean', default: 'false', description: 'Shows a × icon and emits @remove' },
       { name: 'dot', type: 'Boolean', default: 'false', description: 'Shows a colored dot before the label' },
@@ -855,7 +855,7 @@ const componentData = {
 <AppChip label="Success" variant="success" />
 <AppChip label="Warning" variant="warning" />
 <AppChip label="Danger" variant="danger" />
-<AppChip label="Pre-Sales" variant="presales" />
+<AppChip label="Pre-Sales" variant="purple" />
 <AppChip label="Reward" variant="reward" />`,
         demo: defineComponent({ setup() {
           return () => h('div', { class: 'flex flex-wrap gap-2' }, [
@@ -864,7 +864,7 @@ const componentData = {
             h(AppChip, { label: 'Success', variant: 'success' }),
             h(AppChip, { label: 'Warning', variant: 'warning' }),
             h(AppChip, { label: 'Danger', variant: 'danger' }),
-            h(AppChip, { label: 'Pre-Sales', variant: 'presales' }),
+            h(AppChip, { label: 'Pre-Sales', variant: 'purple' }),
             h(AppChip, { label: 'Reward', variant: 'reward' }),
           ])
         } }),
@@ -873,12 +873,12 @@ const componentData = {
         name: 'With dot',
         snippet: `<AppChip label="Active" variant="success" dot />
 <AppChip label="Pending" variant="warning" dot />
-<AppChip label="Pre-Sales" variant="presales" dot />`,
+<AppChip label="Pre-Sales" variant="purple" dot />`,
         demo: defineComponent({ setup() {
           return () => h('div', { class: 'flex flex-wrap gap-2' }, [
             h(AppChip, { label: 'Active', variant: 'success', dot: true }),
             h(AppChip, { label: 'Pending', variant: 'warning', dot: true }),
-            h(AppChip, { label: 'Pre-Sales', variant: 'presales', dot: true }),
+            h(AppChip, { label: 'Pre-Sales', variant: 'purple', dot: true }),
           ])
         } }),
       },
@@ -1120,7 +1120,7 @@ const componentData = {
       { name: 'value', type: 'String', default: '—', description: 'Value this card represents' },
       { name: 'label', type: 'String', default: '—', description: 'Card title' },
       { name: 'description', type: 'String', default: '—', description: 'Supporting text beneath the title' },
-      { name: 'color', type: "'brand' | 'presales' | 'success' | 'warning' | 'danger'", default: "'brand'", description: 'Color of the icon square' },
+      { name: 'color', type: "'brand' | 'purple' | 'success' | 'warning' | 'danger'", default: "'brand'", description: 'Color of the icon square' },
       { name: 'disabled', type: 'Boolean', default: 'false', description: 'Prevents selection' },
     ],
     stories: [
@@ -1144,7 +1144,7 @@ const componentData = {
             }, { icon: () => h(BriefcaseIcon, { class: 'w-5 h-5' }) }),
             h(AppRadioCard, {
               modelValue: demoRadio.value, 'onUpdate:modelValue': v => { demoRadio.value = v },
-              value: 'presales', label: 'Pre-Sales', description: 'Technical evaluations, POCs', color: 'presales',
+              value: 'presales', label: 'Pre-Sales', description: 'Technical evaluations, POCs', color: 'purple',
             }, { icon: () => h(BeakerIcon, { class: 'w-5 h-5' }) }),
             h(AppRadioCard, {
               modelValue: demoRadio.value, 'onUpdate:modelValue': v => { demoRadio.value = v },
@@ -1451,7 +1451,7 @@ const componentData = {
       { name: 'fullWidth', type: 'Boolean', default: 'true', description: 'Makes the field take full container width' },
       { name: 'inputId', type: 'String', default: '—', description: 'ID wired to the label for accessibility' },
       { name: 'icon', type: 'Component', default: 'null', description: 'Heroicon before the label — e.g. the vendor / reseller / end user icon' },
-      { name: 'iconClass', type: 'String', default: "'text-fg-muted'", description: "Colour for the icon, e.g. 'text-vendor'" },
+      { name: 'iconClass', type: 'String', default: "'text-fg-muted'", description: "Colour for the icon, e.g. 'text-accent-purple'" },
     ],
     stories: [
       {
@@ -1495,17 +1495,17 @@ const componentData = {
       },
       {
         name: 'With icon',
-        description: 'An icon before the label ties the field to a company kind or record type. Colour it with the matching token.',
-        snippet: `<AppFormField label="Vendor" :icon="BuildingStorefrontIcon" icon-class="text-vendor" input-id="vendor">
+        description: 'An icon before the label ties the field to a category. Colour it with the matching accent token.',
+        snippet: `<AppFormField label="Vendor" :icon="BuildingStorefrontIcon" icon-class="text-accent-purple" input-id="vendor">
   <AppInput id="vendor" v-model="vendor" placeholder="e.g. Sentrix" />
 </AppFormField>
-<AppFormField label="Reseller" :icon="BuildingOffice2Icon" icon-class="text-reseller" input-id="reseller">…</AppFormField>
-<AppFormField label="End user" :icon="UserGroupIcon" icon-class="text-enduser" input-id="enduser">…</AppFormField>`,
+<AppFormField label="Reseller" :icon="BuildingOffice2Icon" icon-class="text-brand" input-id="reseller">…</AppFormField>
+<AppFormField label="End user" :icon="UserGroupIcon" icon-class="text-accent-amber" input-id="enduser">…</AppFormField>`,
         demo: defineComponent({ setup() {
           const fields = [
-            { label: 'Vendor', icon: BuildingStorefrontIcon, iconClass: 'text-vendor', placeholder: 'e.g. Sentrix' },
-            { label: 'Reseller', icon: BuildingOffice2Icon, iconClass: 'text-reseller', placeholder: 'e.g. Brightwave plc' },
-            { label: 'End user', icon: UserGroupIcon, iconClass: 'text-enduser', placeholder: 'e.g. Northwind' },
+            { label: 'Vendor', icon: BuildingStorefrontIcon, iconClass: 'text-accent-purple', placeholder: 'e.g. Sentrix' },
+            { label: 'Reseller', icon: BuildingOffice2Icon, iconClass: 'text-brand', placeholder: 'e.g. Brightwave plc' },
+            { label: 'End user', icon: UserGroupIcon, iconClass: 'text-accent-amber', placeholder: 'e.g. Northwind' },
           ]
           return () => h('div', { class: 'grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl' }, fields.map((f, i) =>
             h(AppFormField, { label: f.label, icon: f.icon, iconClass: f.iconClass, inputId: 'ds-ff-icon-' + i }, {
@@ -1527,7 +1527,7 @@ const componentData = {
       'Use brand for interactive elements — CTAs, active states, focus rings, links',
       'Use reward (gold) only for points, levels, XP and bonuses',
       'Use podium-gold/silver/bronze only for rank 1/2/3',
-      'Use vendor / reseller / enduser for company kinds — chips, pickers, form-field icons',
+      'Use accent-blue / purple / pink / amber for categories — chips, pickers, form-field icons. Pick one meaning per accent in your app',
     ],
     whenNotTo: [
       "Don't write light/dark pairs (bg-surface-1) in new code — the semantic token already switches",
@@ -1579,8 +1579,7 @@ bg-reward-fill text-reward-on   /* reward fill — Claim bonus, XP bar */
 text-reward                     /* gold text — points */
 bg-podium-gold | -silver | -bronze  /* rank 1/2/3 only */
 success · warning · danger      /* status */
-sales · presales · marketing    /* activity categories */
-vendor · reseller · enduser     /* company kinds */`,
+accent-blue · accent-purple · accent-pink · accent-amber   /* categories */`,
         demo: defineComponent({ setup() {
           const tokens = [
             { cls: 'bg-brand', name: 'brand', use: 'Action, focus' },
@@ -1591,12 +1590,10 @@ vendor · reseller · enduser     /* company kinds */`,
             { cls: 'bg-success', name: 'success', use: 'Completed, live' },
             { cls: 'bg-warning', name: 'warning', use: 'Caution' },
             { cls: 'bg-danger', name: 'danger', use: 'Errors, destructive' },
-            { cls: 'bg-sales', name: 'sales', use: 'Sales' },
-            { cls: 'bg-presales', name: 'presales', use: 'Pre-Sales' },
-            { cls: 'bg-marketing', name: 'marketing', use: 'Marketing' },
-            { cls: 'bg-vendor', name: 'vendor', use: 'Vendor (alias of presales)' },
-            { cls: 'bg-reseller', name: 'reseller', use: 'Reseller (alias of brand)' },
-            { cls: 'bg-enduser', name: 'enduser', use: 'End user (amber)' },
+            { cls: 'bg-accent-blue', name: 'accent-blue', use: 'Category' },
+            { cls: 'bg-accent-purple', name: 'accent-purple', use: 'Category' },
+            { cls: 'bg-accent-pink', name: 'accent-pink', use: 'Category' },
+            { cls: 'bg-accent-amber', name: 'accent-amber', use: 'Category' },
           ]
           return () => h('div', { class: 'grid grid-cols-2 sm:grid-cols-3 gap-3' }, tokens.map(t =>
             h('div', { class: 'rounded-xl overflow-hidden border border-line' }, [
@@ -1611,14 +1608,14 @@ vendor · reseller · enduser     /* company kinds */`,
       },
       {
         name: 'Record types & companies',
-        description: 'Each record type and company kind has one colour + icon, used for badges, chips, calendar events and pickers. Defined once in src/utils/activity.js (RECORD_STYLE, COMPANY_STYLE).',
+        description: 'Example: each record type and company kind in an app gets one accent + icon, used for badges, chips, calendar events and pickers. Defined once in the app (here docs/src/activityStyles.js: RECORD_STYLE, COMPANY_STYLE).',
         snippet: `import { RECORD_STYLE, COMPANY_STYLE } from '../activityStyles'
 
-RECORD_STYLE['Pre-Sales'].soft   // 'bg-presales/15 text-presales'
+RECORD_STYLE['Pre-Sales'].soft   // 'bg-accent-purple/15 text-accent-purple'
 RECORD_STYLE.Sales.icon          // ArrowTrendingUpIcon
-COMPANY_STYLE.reseller.soft      // 'bg-reseller/15 text-reseller'
+COMPANY_STYLE.reseller.soft      // 'bg-brand/15 text-brand'
 
-// AppCombobox chips use the same colours: tone="vendor" | "reseller" | "endUser"`,
+// AppCombobox chips use the same colours: tone="brand" | "purple" | "amber"`,
         demo: defineComponent({ setup() {
           const rec = Object.entries(RECORD_STYLE)
           const comp = [['Vendor', COMPANY_STYLE.vendor], ['Reseller', COMPANY_STYLE.reseller], ['End user', COMPANY_STYLE.endUser]]
@@ -2040,7 +2037,7 @@ mb-8  → 32px  between page sections`,
       { name: 'options', type: 'Array<{ value, label, meta? }>', default: '—', description: 'Filtered client-side by label. meta is a muted second line' },
       { name: 'multiple', type: 'Boolean', default: 'false', description: 'Allow several values, shown as chips' },
       { name: 'min-chars', type: 'Number', default: '0', description: 'Characters before results show (companies use 3)' },
-      { name: 'tone', type: "'vendor' | 'reseller' | 'endUser' | 'neutral'", default: "'neutral'", description: 'Chip colour — matches the company kind' },
+      { name: 'tone', type: "'brand' | 'purple' | 'amber' | 'neutral'", default: "'neutral'", description: 'Chip colour' },
       { name: 'error', type: 'Boolean', default: 'false', description: 'Danger border' },
       { name: 'input-id', type: 'String', default: 'auto', description: 'Pass the same id to Form Field for the label' },
     ],
@@ -2048,15 +2045,15 @@ mb-8  → 32px  between page sections`,
       {
         name: 'Single vs multiple',
         description: 'Reseller accepts one, Vendors accepts many — the difference is visible before anyone tries.',
-        snippet: `<AppCombobox v-model="reseller" :options="resellers" tone="reseller" placeholder="Search resellers…" />
-<AppCombobox v-model="vendors" :options="vendors" multiple tone="vendor" placeholder="Search vendors…" />`,
+        snippet: `<AppCombobox v-model="reseller" :options="resellers" tone="brand" placeholder="Search resellers…" />
+<AppCombobox v-model="vendors" :options="vendors" multiple tone="purple" placeholder="Search vendors…" />`,
         demo: defineComponent({ setup() {
           const opts = (list) => list.map((label) => ({ value: label, label }))
           const resellers = opts(['Brightwave plc', 'Kessler IT Ltd', 'Compunet', 'Kilobyte Software Services'])
           const vendors = opts(['Sentrix', 'Inboxa AI', 'Mailguard', 'IdentiQ', 'Skyedge'])
           return () => h('div', { class: 'grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl' }, [
-            h(AppFormField, { label: 'Reseller', inputId: 'ds-cb-1', helper: 'Single select' }, { default: () => h(AppCombobox, { inputId: 'ds-cb-1', options: resellers, tone: 'reseller', placeholder: 'Search resellers…', modelValue: demoComboSingle.value, 'onUpdate:modelValue': (v) => { demoComboSingle.value = v } }) }),
-            h(AppFormField, { label: 'Vendors', inputId: 'ds-cb-2', helper: 'Multiple' }, { default: () => h(AppCombobox, { inputId: 'ds-cb-2', options: vendors, multiple: true, tone: 'vendor', placeholder: 'Search vendors…', modelValue: demoComboMulti.value, 'onUpdate:modelValue': (v) => { demoComboMulti.value = v } }) }),
+            h(AppFormField, { label: 'Reseller', inputId: 'ds-cb-1', helper: 'Single select' }, { default: () => h(AppCombobox, { inputId: 'ds-cb-1', options: resellers, tone: 'brand', placeholder: 'Search resellers…', modelValue: demoComboSingle.value, 'onUpdate:modelValue': (v) => { demoComboSingle.value = v } }) }),
+            h(AppFormField, { label: 'Vendors', inputId: 'ds-cb-2', helper: 'Multiple' }, { default: () => h(AppCombobox, { inputId: 'ds-cb-2', options: vendors, multiple: true, tone: 'purple', placeholder: 'Search vendors…', modelValue: demoComboMulti.value, 'onUpdate:modelValue': (v) => { demoComboMulti.value = v } }) }),
           ])
         } }),
       },
@@ -2308,7 +2305,7 @@ toast('Salesforce sync failed', 'danger')`,
     props: [
       { name: 'label', type: 'String', default: "''", description: 'Text (or use the default slot)' },
       { name: 'active', type: 'Boolean', default: 'false', description: 'On state — soft fill, aria-pressed, × when clearable' },
-      { name: 'tone', type: "'brand' | 'sales' | 'presales' | 'marketing' | 'vendor' | 'reseller' | 'enduser' | 'neutral'", default: "'brand'", description: 'Colour of the icon and the active fill' },
+      { name: 'tone', type: "'brand' | 'blue' | 'purple' | 'pink' | 'amber' | 'neutral'", default: "'brand'", description: 'Colour of the icon and the active fill' },
       { name: 'icon', type: 'Component', default: 'null', description: 'Heroicon before the label' },
       { name: 'clearable', type: 'Boolean', default: 'true', description: 'Show × while active. Off: the chip keeps its width when selected — use for one-of tabs (All · Published · Draft)' },
       { name: 'size', type: "'sm' | 'md'", default: "'md'", description: '28px or 36px' },
@@ -2317,7 +2314,7 @@ toast('Salesforce sync failed', 'danger')`,
     stories: [
       {
         name: 'Tones',
-        description: 'Click to toggle. Record types and company kinds use their own tones.',
+        description: 'Click to toggle. Each category uses its own accent tone.',
         snippet: `<AppFilterChip
   v-for="f in filters" :key="f.value"
   :label="f.label" :icon="f.icon" :tone="f.tone"
@@ -2326,12 +2323,10 @@ toast('Salesforce sync failed', 'danger')`,
 />`,
         demo: defineComponent({ setup() {
           const chips = [
-            { value: 'sales', label: 'Sales', tone: 'sales', icon: ArrowTrendingUpIcon },
-            { value: 'presales', label: 'Pre-Sales', tone: 'presales', icon: ViewfinderCircleIcon },
-            { value: 'marketing', label: 'Marketing', tone: 'marketing', icon: MegaphoneIcon },
-            { value: 'vendor', label: 'Vendor', tone: 'vendor', icon: BuildingStorefrontIcon },
-            { value: 'reseller', label: 'Reseller', tone: 'reseller', icon: BuildingOffice2Icon },
-            { value: 'enduser', label: 'End user', tone: 'enduser', icon: UserGroupIcon },
+            { value: 'sales', label: 'Sales', tone: 'blue', icon: ArrowTrendingUpIcon },
+            { value: 'presales', label: 'Pre-Sales', tone: 'purple', icon: ViewfinderCircleIcon },
+            { value: 'marketing', label: 'Marketing', tone: 'pink', icon: MegaphoneIcon },
+            { value: 'enduser', label: 'End user', tone: 'amber', icon: UserGroupIcon },
             { value: 'brand', label: 'Mine', tone: 'brand', icon: BoltIcon },
             { value: 'neutral', label: 'Upcoming', tone: 'neutral', icon: CalendarDaysIcon },
           ]
@@ -2625,7 +2620,7 @@ toast('Salesforce sync failed', 'danger')`,
   <template #default="{ stuck }">
     <div class="flex items-center gap-2">
       <AppInput placeholder="Search activity…" />
-      <AppFilterChip v-if="stuck && type" :label="type" tone="presales" active @click="type = null" />
+      <AppFilterChip v-if="stuck && type" :label="type" tone="purple" active @click="type = null" />
     </div>
   </template>
 </AppStickyBar>`,
@@ -2637,7 +2632,7 @@ toast('Salesforce sync failed', 'danger')`,
             ]),
             h(AppStickyBar, { scroller: '#ds-sticky-scroller', bleedClass: 'px-4 py-3' }, {
               default: ({ stuck }) => h('div', { class: 'flex items-center gap-2' }, [
-                h(AppFilterChip, { label: 'Pre-Sales', tone: 'presales', icon: ViewfinderCircleIcon, active: true, size: 'sm' }),
+                h(AppFilterChip, { label: 'Pre-Sales', tone: 'purple', icon: ViewfinderCircleIcon, active: true, size: 'sm' }),
                 h('span', { class: 'text-xs text-fg-muted' }, stuck ? 'stuck = true · backdrop on' : 'stuck = false'),
               ]),
             }),

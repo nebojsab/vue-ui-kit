@@ -34,9 +34,9 @@ const props = defineProps({
   error:     { type: String,  default: null },
   required:  { type: Boolean, default: false },
   fullWidth: { type: Boolean, default: true },
-  /** Icon before the label (a component), e.g. the vendor / reseller / end user icon */
+  /** Icon before the label (a component), e.g. a category icon */
   icon:      { type: [Object, Function], default: null },
-  /** Colour for the icon, e.g. 'text-vendor' */
+  /** Colour for the icon, e.g. 'text-accent-purple' */
   iconClass: { type: String,  default: 'text-fg-muted' },
   /** Pass to auto-wire label[for] — must match your input's id */
   inputId:   { type: String,  default: () => `field-${Math.random().toString(36).slice(2, 7)}` },

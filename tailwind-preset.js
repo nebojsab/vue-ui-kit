@@ -88,17 +88,14 @@ export default {
           bronze: '#D98E5B',
         },
 
-        // ── Activity category colors (theme-aware) ───────────────────────
-        // Sales = blue · Pre-Sales = purple · Marketing = pink
-        sales:     v('sales'),
-        presales:  v('presales'),
-        marketing: v('marketing'),
-
-        // ── Company kinds (chips, pickers, form labels) ───────────────────
-        // Vendor = purple/pink · Reseller = blue · End user = yellow
-        vendor:   v('vendor'),
-        reseller: v('reseller'),
-        enduser:  v('enduser'),
+        // ── Accents (theme-aware) — categories, tags, chips, pickers ─────
+        // One colour = one meaning inside an app; pick what each accent stands for.
+        accent: {
+          blue:   v('accent-blue'),
+          purple: v('accent-purple'),
+          pink:   v('accent-pink'),
+          amber:  v('accent-amber'),
+        },
       },
 
       // ── Typography ────────────────────────────────────────────────────

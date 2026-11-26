@@ -267,9 +267,9 @@ import { TrophyIcon } from '@heroicons/vue/16/solid'  // Micro 16`,
           { icon: Outline.CheckCircleIcon, cls: 'bg-success/15 text-success', name: 'success' },
           { icon: Outline.ExclamationTriangleIcon, cls: 'bg-warning/15 text-warning', name: 'warning' },
           { icon: Outline.XCircleIcon, cls: 'bg-danger/15 text-danger', name: 'danger' },
-          { icon: Outline.ArrowTrendingUpIcon, cls: 'bg-sales/15 text-sales', name: 'sales' },
-          { icon: Outline.ViewfinderCircleIcon, cls: 'bg-presales/15 text-presales', name: 'presales' },
-          { icon: Outline.MegaphoneIcon, cls: 'bg-marketing/15 text-marketing', name: 'marketing' },
+          { icon: Outline.ArrowTrendingUpIcon, cls: 'bg-accent-blue/15 text-accent-blue', name: 'accent-blue' },
+          { icon: Outline.ViewfinderCircleIcon, cls: 'bg-accent-purple/15 text-accent-purple', name: 'accent-purple' },
+          { icon: Outline.MegaphoneIcon, cls: 'bg-accent-pink/15 text-accent-pink', name: 'accent-pink' },
         ]
         return () => h('div', { class: 'flex flex-wrap gap-4' }, tiles.map((t) =>
           h('div', { class: 'flex flex-col items-center gap-2 w-20' }, [

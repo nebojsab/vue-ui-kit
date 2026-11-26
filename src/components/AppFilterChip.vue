@@ -25,7 +25,7 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 defineProps({
   label:     { type: String, default: '' },
   active:    { type: Boolean, default: false },
-  /** 'brand' | 'sales' | 'presales' | 'marketing' | 'vendor' | 'reseller' | 'enduser' | 'neutral' */
+  /** 'brand' | 'blue' | 'purple' | 'pink' | 'amber' | 'neutral' */
   tone:      { type: String, default: 'brand' },
   icon:      { type: [Object, Function], default: null },
   /** Show × while active */
@@ -37,12 +37,10 @@ defineProps({
 // Full class strings so Tailwind keeps them
 const TONE = {
   brand:     { off: 'border-line text-fg-2 hover:text-fg hover:border-brand/50',     on: 'bg-brand/15 border-brand/60 text-fg',         icon: 'text-brand' },
-  sales:     { off: 'border-line text-fg-2 hover:text-fg hover:border-sales/50',     on: 'bg-sales/15 border-sales/60 text-fg',         icon: 'text-sales' },
-  presales:  { off: 'border-line text-fg-2 hover:text-fg hover:border-presales/50',  on: 'bg-presales/15 border-presales/60 text-fg',   icon: 'text-presales' },
-  marketing: { off: 'border-line text-fg-2 hover:text-fg hover:border-marketing/50', on: 'bg-marketing/15 border-marketing/60 text-fg', icon: 'text-marketing' },
-  vendor:    { off: 'border-line text-fg-2 hover:text-fg hover:border-vendor/50',    on: 'bg-vendor/15 border-vendor/60 text-fg',       icon: 'text-vendor' },
-  reseller:  { off: 'border-line text-fg-2 hover:text-fg hover:border-reseller/50',  on: 'bg-reseller/15 border-reseller/60 text-fg',   icon: 'text-reseller' },
-  enduser:   { off: 'border-line text-fg-2 hover:text-fg hover:border-enduser/50',   on: 'bg-enduser/15 border-enduser/60 text-fg',     icon: 'text-enduser' },
+  blue:      { off: 'border-line text-fg-2 hover:text-fg hover:border-accent-blue/50',     on: 'bg-accent-blue/15 border-accent-blue/60 text-fg',         icon: 'text-accent-blue' },
+  purple:    { off: 'border-line text-fg-2 hover:text-fg hover:border-accent-purple/50',  on: 'bg-accent-purple/15 border-accent-purple/60 text-fg',   icon: 'text-accent-purple' },
+  pink:      { off: 'border-line text-fg-2 hover:text-fg hover:border-accent-pink/50', on: 'bg-accent-pink/15 border-accent-pink/60 text-fg', icon: 'text-accent-pink' },
+  amber:     { off: 'border-line text-fg-2 hover:text-fg hover:border-accent-amber/50',   on: 'bg-accent-amber/15 border-accent-amber/60 text-fg',     icon: 'text-accent-amber' },
   neutral:   { off: 'border-line text-fg-2 hover:text-fg hover:bg-surface-2',        on: 'bg-surface-3 border-line text-fg',            icon: 'text-fg-muted' },
 }
 </script>

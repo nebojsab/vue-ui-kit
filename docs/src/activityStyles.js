@@ -5,9 +5,9 @@ import {
 
 /** Visual identity per record type — full class strings so Tailwind keeps them. */
 export const RECORD_STYLE = {
-  Sales:       { icon: ArrowTrendingUpIcon,  text: 'text-sales',     soft: 'bg-sales/15 text-sales',         dot: 'bg-sales',     border: 'border-sales/40' },
-  'Pre-Sales': { icon: ViewfinderCircleIcon, text: 'text-presales',  soft: 'bg-presales/15 text-presales',   dot: 'bg-presales',  border: 'border-presales/40' },
-  Marketing:   { icon: MegaphoneIcon,        text: 'text-marketing', soft: 'bg-marketing/15 text-marketing', dot: 'bg-marketing', border: 'border-marketing/40' },
+  Sales:       { icon: ArrowTrendingUpIcon,  text: 'text-accent-blue',     soft: 'bg-accent-blue/15 text-accent-blue',         dot: 'bg-accent-blue',     border: 'border-accent-blue/40' },
+  'Pre-Sales': { icon: ViewfinderCircleIcon, text: 'text-accent-purple',  soft: 'bg-accent-purple/15 text-accent-purple',   dot: 'bg-accent-purple',  border: 'border-accent-purple/40' },
+  Marketing:   { icon: MegaphoneIcon,        text: 'text-accent-pink', soft: 'bg-accent-pink/15 text-accent-pink', dot: 'bg-accent-pink', border: 'border-accent-pink/40' },
 }
 
 export const RECORD_DESCRIPTION = {
@@ -40,9 +40,9 @@ export function activityTitle(a) {
 
 export const gbp = (n) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(n ?? 0)
 
-/** Visual identity per company kind (vendor / reseller / end user). */
+/** Visual identity per company kind (vendor / reseller / end user) — example data for the docs. */
 export const COMPANY_STYLE = {
-  vendor:   { icon: BuildingStorefrontIcon, soft: 'bg-vendor/15 text-vendor' },
-  reseller: { icon: BuildingOffice2Icon,    soft: 'bg-reseller/15 text-reseller' },
-  endUser:  { icon: UserGroupIcon,          soft: 'bg-enduser/15 text-enduser' },
+  vendor:   { icon: BuildingStorefrontIcon, soft: 'bg-accent-purple/15 text-accent-purple' },
+  reseller: { icon: BuildingOffice2Icon,    soft: 'bg-brand/15 text-brand' },
+  endUser:  { icon: UserGroupIcon,          soft: 'bg-accent-amber/15 text-accent-amber' },
 }

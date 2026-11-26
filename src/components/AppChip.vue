@@ -45,7 +45,7 @@ const variantMap = {
   success:  'border-success/30 bg-success/10 text-success',
   warning:  'border-warning/30 bg-warning/10 text-warning',
   danger:   'border-danger/30 bg-danger/10 text-danger',
-  presales: 'border-presales/30 bg-presales/10 text-presales',
+  purple:   'border-accent-purple/30 bg-accent-purple/10 text-accent-purple',
   reward:   'border-reward-fill/30 bg-reward-fill/10 text-reward',
 }
 const variantClasses = computed(() => variantMap[props.variant] ?? variantMap.default)
@@ -56,7 +56,7 @@ const dotColorMap = {
   success:  'bg-success',
   warning:  'bg-warning',
   danger:   'bg-danger',
-  presales: 'bg-presales',
+  purple:   'bg-accent-purple',
   reward:   'bg-reward-fill',
 }
 const dotClasses = computed(() => dotColorMap[props.variant] ?? dotColorMap.default)

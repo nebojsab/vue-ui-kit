@@ -46,7 +46,7 @@
           'font-display font-bold tabular truncate',
           isText ? 'text-[22px] leading-[40px]' : 'text-num-lg',
           value === null || value === '' ? 'text-fg-muted'
-          : featured ? 'bg-gradient-to-br from-brand to-presales bg-clip-text text-transparent'
+          : featured ? 'bg-gradient-to-br from-brand to-accent-purple bg-clip-text text-transparent'
           : tone === 'reward' ? 'text-reward' : 'text-fg',
         ]"
       >{{ value === null || value === '' ? '—' : value }}</span>

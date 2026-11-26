@@ -57,7 +57,7 @@ const isSelected = computed(() => props.modelValue === props.value)
 
 const iconBgMap = {
   brand:    'bg-brand/15 text-brand',
-  presales: 'bg-presales/15 text-presales',
+  purple:   'bg-accent-purple/15 text-accent-purple',
   success:  'bg-success/15 text-success',
   reward:   'bg-reward-fill/15 text-reward',
   warning:  'bg-warning/15 text-warning',

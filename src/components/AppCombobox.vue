@@ -132,7 +132,7 @@ const props = defineProps({
   placeholder:{ type: String, default: 'Search…' },
   /** Characters needed before results show (production uses 3 for companies) */
   minChars:   { type: Number, default: 0 },
-  /** Chip colour: 'vendor' | 'reseller' | 'endUser' | 'neutral' */
+  /** Chip colour: 'brand' | 'purple' | 'amber' | 'neutral' */
   tone:       { type: String, default: 'neutral' },
   error:      { type: Boolean, default: false },
   inputId:    { type: String, default: () => `cb-${Math.random().toString(36).slice(2, 7)}` },
@@ -140,9 +140,9 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const TONE = {
-  vendor:   'bg-vendor/15 text-vendor',
-  reseller: 'bg-reseller/15 text-reseller',
-  endUser:  'bg-enduser/15 text-enduser',
+  brand:    'bg-brand/15 text-brand',
+  purple:   'bg-accent-purple/15 text-accent-purple',
+  amber:    'bg-accent-amber/15 text-accent-amber',
   neutral:  'bg-surface-3 text-fg',
 }
 

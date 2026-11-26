@@ -46,7 +46,7 @@
 import { computed, ref, watch, nextTick } from 'vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 
-/** Side panel for details and secondary forms (activity details, New reseller…). */
+/** Side panel for details and secondary forms (record details, New customer…). */
 const props = defineProps({
   modelValue: Boolean,
   title: { type: String, default: '' },

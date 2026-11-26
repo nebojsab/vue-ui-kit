@@ -10,7 +10,7 @@ A Vue 3 + Tailwind CSS component library: design tokens (light and dark), a Tail
 | | |
 |---|---|
 | `styles.css` | Tokens (light + dark, CSS variables), gradients (`bg-brand-vivid · night · aurora · soft · hero`), base styles, utilities (`.card`, `.card-interactive`, `.text-overline`, `.tabular`, `.sticky-aside`…), Inter (300–800; `font-mono` = Inter with tabular figures) |
-| `tailwind-preset` | Colours mapped to the tokens (slate neutrals, indigo accent), fonts, type scale, radii, shadows, animations |
+| `tailwind-preset` | Colours mapped to the tokens (slate neutrals, indigo `brand`, `accent-blue · purple · pink · amber` for categories), fonts, type scale, radii, shadows, animations |
 | Components | 43: `AppButton`, `AppInput`, `AppDateInput`, `AppSelect`, `AppCombobox`, `AppCheckbox`, `AppToggleGroup`, `AppCopyButton`, `AppFilterChip`, `AppFilterTile`, `DataTable`, `StatCard`, `AppModal`, `AppConfirmDialog`, `AppDrawer`, `AppPopover`, `AppToaster`… |
 | Layout | `AppSidebar` (floating, collapsible), `AppUserMenu` (topbar), `AppBottomNav` (phones), `AppStickyBar`, `AppBackToTop` |
 | Composables | `useInfiniteList` (load as you scroll), `useStuck` (sticky state), `useFloating` (popover/list positioning) |
@@ -58,7 +58,7 @@ import { AppButton, StatCard, AppToaster, toast } from '@nebojsab/vue-ui-kit'
 ```
 Dark mode: toggle the `dark` class on `<html>`. Wrap a section in `.theme-dark` to keep it dark in both themes.
 
-**Theming:** every colour is an RGB-channel CSS variable (`--ui-brand`, `--ui-surface-1`, …) in
+**Theming:** every colour is an RGB-channel CSS variable (`--ui-brand`, `--ui-surface-1`, `--ui-accent-purple`, …) in
 `src/styles/index.css`. Override them in your app's CSS to retheme the whole kit.
 
 **App shell**
@@ -87,6 +87,10 @@ npm run dev          # docs on http://localhost:5173, every component live
 npm run build:docs   # static docs build → docs-dist/
 ```
 Docs live in `docs/` and import the package source directly.
+
+## License
+
+[MIT](LICENSE)
 
 ## Deploy
 

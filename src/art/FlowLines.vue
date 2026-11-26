@@ -35,7 +35,7 @@ function readColors() {
   const css = getComputedStyle(canvas.value)
   const v = (name) => css.getPropertyValue(name).trim().split(/\s+/).join(',')
   dark = document.documentElement.classList.contains('dark') || !!canvas.value.closest('.theme-dark')
-  palette = [v('--ui-brand'), v('--ui-presales'), v('--ui-reward-fill')].map((c) => c || '59,179,229')
+  palette = [v('--ui-brand'), v('--ui-accent-purple'), v('--ui-reward-fill')].map((c) => c || '59,179,229')
 }
 
 function layout() {
@@ -59,7 +59,7 @@ function layout() {
 
 function colorFor(i) {
   if (i % 11 === 5) return palette[2]          // the odd gold line
-  return i % 3 === 0 ? palette[1] : palette[0] // mostly brand, some presales
+  return i % 3 === 0 ? palette[1] : palette[0] // mostly brand, some purple
 }
 
 function draw(time) {
