@@ -1,0 +1,14 @@
+/* Vue UI Kit for Tailwind CSS v4.
+   In your app's main CSS:
+
+     @import "tailwindcss";
+     @import "@nebojsab/vue-ui-kit/tailwind-v4.css";
+
+   It brings the tokens and base styles, maps the theme through the kit's preset
+   (@config), scans the kit's components (@source) and switches dark mode on the
+   `dark` class on <html>, like the Tailwind v3 setup. */
+@import "./src/styles/index.css";
+
+@config "./tailwind-preset.js";
+@source "./src";
+@custom-variant dark (&:where(.dark, .dark *));

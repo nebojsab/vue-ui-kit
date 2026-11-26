@@ -1,0 +1,67 @@
+<!doctype html>
+<!-- Social preview (1280×640). Regenerate with: npm run og -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: Inter; font-weight: 400; src: url(../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2) format('woff2'); }
+  @font-face { font-family: Inter; font-weight: 600; src: url(../../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2) format('woff2'); }
+  @font-face { font-family: Inter; font-weight: 800; src: url(../../node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2) format('woff2'); }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body {
+    font-family: Inter, system-ui, sans-serif; color: #F1F5F9;
+    background:
+      radial-gradient(60% 70% at 100% 100%, rgb(99 102 241 / .45) 0%, transparent 70%),
+      radial-gradient(50% 60% at 0% 0%, rgb(236 72 153 / .18) 0%, transparent 70%),
+      linear-gradient(160deg, #0B0F19 30%, #1E1B4B 100%);
+    display: flex; padding: 72px 80px; gap: 56px;
+  }
+  .left { flex: 1; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 16px; font-weight: 800; font-size: 26px; letter-spacing: -.3px; }
+  h1 { margin-top: 52px; font-size: 64px; line-height: 1.02; font-weight: 800; letter-spacing: -2.5px; }
+  h1 span { background: linear-gradient(90deg, #A5B4FC, #F0ABFC); -webkit-background-clip: text; color: transparent; }
+  p.sub { margin-top: 22px; font-size: 23px; line-height: 1.4; color: #B0BACC; max-width: 560px; }
+  .meta { margin-top: auto; display: flex; gap: 12px; font-size: 18px; color: #CBD5E1; }
+  .meta b { font-weight: 600; padding: 8px 14px; border-radius: 999px; background: rgb(255 255 255 / .06); border: 1px solid rgb(255 255 255 / .1); }
+  .right { width: 400px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+  .card { background: #111827; border: 1px solid #2A344C; border-radius: 20px; padding: 22px; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .t { font-weight: 600; font-size: 18px; } .m { color: #8190A8; font-size: 14px; margin-top: 4px; }
+  .badge { font-size: 13px; font-weight: 700; color: #818CF8; background: rgb(129 140 248 / .15); border: 1px solid rgb(129 140 248 / .3); padding: 4px 10px; border-radius: 999px; }
+  .btn { height: 44px; padding: 0 22px; border-radius: 999px; background: #818CF8; color: #0F172A; font-weight: 800; font-size: 13px; letter-spacing: .1em; display: inline-flex; align-items: center; }
+  .btn2 { height: 44px; padding: 0 20px; border-radius: 999px; background: #182033; border: 1px solid #2A344C; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; }
+  .toggle { width: 46px; height: 26px; border-radius: 99px; background: #818CF8; position: relative; } .toggle::after { content: ''; position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; }
+  .bar { height: 8px; border-radius: 99px; background: #212B42; margin-top: 14px; overflow: hidden; } .bar i { display: block; width: 68%; height: 100%; background: #818CF8; border-radius: 99px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { font-size: 14px; font-weight: 600; padding: 7px 12px; border-radius: 999px; border: 1px solid; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">
+      <svg width="44" height="44" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="32" x2="32" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4F46E5"/><stop offset="1" stop-color="#A855F7"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><rect x="8" y="8" width="9.5" height="9.5" rx="2.5" fill="#fff"/><rect x="14.5" y="14.5" width="9.5" height="9.5" rx="2.5" fill="#fff" fill-opacity=".6"/></svg>
+      Vue UI Kit
+    </div>
+    <h1>Vue 3 components,<br /><span>ready to theme.</span></h1>
+    <p class="sub">Accessible Vue 3 + Tailwind CSS components with light and dark themes. Retheme everything with CSS variables.</p>
+    <div class="meta"><b>Vue 3</b><b>Tailwind CSS</b><b>Dark mode</b><b>MIT</b></div>
+  </div>
+  <div class="right">
+    <div class="card">
+      <div class="row"><div><div class="t">Workspace</div><div class="m">Acme Inc. · Pro plan</div></div><span class="badge">Active</span></div>
+      <div class="bar"><i></i></div>
+      <div class="row" style="margin-top:18px"><span style="font-size:15px;color:#B0BACC">Public workspace</span><span class="toggle"></span></div>
+    </div>
+    <div class="card">
+      <div class="chips">
+        <span class="chip" style="color:#60A5FA;border-color:rgb(96 165 250/.4);background:rgb(96 165 250/.12)">Design</span>
+        <span class="chip" style="color:#C084FC;border-color:rgb(192 132 252/.4);background:rgb(192 132 252/.12)">Research</span>
+        <span class="chip" style="color:#F472B6;border-color:rgb(244 114 182/.4);background:rgb(244 114 182/.12)">Marketing</span>
+        <span class="chip" style="color:#FBBF24;border-color:rgb(251 191 36/.4);background:rgb(251 191 36/.12)">Ops</span>
+      </div>
+      <div class="row" style="margin-top:18px;justify-content:flex-start"><span class="btn">SAVE</span><span class="btn2">Cancel</span></div>
+    </div>
+  </div>
+</body>
+</html>

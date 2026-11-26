@@ -1,14 +1,14 @@
-name: Publish package
+name: Publish to npm
 
-# Push a tag like v1.2.0 (matching package.json) to publish @nebojsab/vue-ui-kit
-# to GitHub Packages. Apps then bump the version they depend on.
+# Push a tag like v1.1.0 (matching package.json) to publish @nebojsab/vue-ui-kit to the
+# public npm registry. Needs an npm automation token in the repo secret NPM_TOKEN.
 on:
   push:
     tags: ['v*']
 
 permissions:
   contents: read
-  packages: write
+  id-token: write   # npm provenance
 
 jobs:
   publish:
@@ -18,11 +18,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: https://npm.pkg.github.com
-          scope: '@nebojsab'
+          registry-url: https://registry.npmjs.org
       - run: npm ci
       - name: Tag must match package.json version
         run: test "v$(node -p "require('./package.json').version")" = "${GITHUB_REF_NAME}"
-      - run: npm publish
+      - name: Types are up to date
+        run: npm run build:types && git diff --exit-code src/index.d.ts
+      - run: npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

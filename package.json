@@ -9,19 +9,28 @@
     "url": "git+https://github.com/nebojsab/vue-ui-kit.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
-  "main": "./src/index.js",
   "exports": {
-    ".": "./src/index.js",
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
     "./styles.css": "./src/styles/index.css",
-    "./tailwind-preset": "./tailwind-preset.js",
+    "./tailwind-v4.css": "./tailwind-v4.css",
+    "./tailwind-preset": {
+      "types": "./tailwind-preset.d.ts",
+      "default": "./tailwind-preset.js"
+    },
     "./logo/*": "./src/logo/*",
     "./package.json": "./package.json"
   },
   "files": [
     "src",
-    "tailwind-preset.js"
+    "tailwind-preset.js",
+    "tailwind-preset.d.ts",
+    "tailwind-v4.css"
   ],
   "sideEffects": [
     "*.css"
@@ -29,11 +38,14 @@
   "scripts": {
     "dev": "vite",
     "build:docs": "vite build",
-    "build:docs:pages": "vite build && cp docs-dist/index.html docs-dist/404.html"
+    "build:docs:pages": "vite build && node scripts/prerender-meta.mjs",
+    "og": "node scripts/shoot.mjs scripts/og/og.html docs/public/og.png 1280 640 1",
+    "build:types": "node scripts/gen-types.mjs",
+    "prepublishOnly": "node scripts/gen-types.mjs"
   },
   "peerDependencies": {
     "@heroicons/vue": "^2.2.0",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^3.4.0 || ^4.0.0",
     "vue": "^3.5.0"
   },
   "dependencies": {
@@ -49,5 +61,24 @@
     "vue": "^3.5.42",
     "vue-router": "^4.6.4"
   },
-  "homepage": "https://nebojsab.github.io/vue-ui-kit/"
+  "homepage": "https://nebojsab.github.io/vue-ui-kit/",
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue-components",
+    "tailwindcss",
+    "tailwind",
+    "component-library",
+    "design-system",
+    "ui-kit",
+    "dark-mode",
+    "theming",
+    "accessibility"
+  ],
+  "author": "Nebojsa Brnjasevic",
+  "bugs": {
+    "url": "https://github.com/nebojsab/vue-ui-kit/issues"
+  },
+  "types": "./src/index.d.ts",
+  "main": "./src/index.js"
 }

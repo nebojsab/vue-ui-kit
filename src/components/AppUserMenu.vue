@@ -38,14 +38,14 @@
             role="menuitem"
             v-bind="item.to ? linkProps(item.to) : {}"
             :type="item.to ? undefined : 'button'"
-            class="menu-item"
+            :class="[ITEM, 'text-fg-2 hover:text-fg']"
             @click="item.onClick?.(); close()"
           >
             <component :is="item.icon" v-if="item.icon" class="w-4 h-4" aria-hidden="true" />{{ item.label }}
           </component>
         </div>
         <div class="py-1 border-t border-line">
-          <button type="button" role="menuitem" class="menu-item text-danger hover:text-danger" @click="$emit('sign-out'); close()">
+          <button type="button" role="menuitem" :class="[ITEM, 'text-danger']" @click="$emit('sign-out'); close()">
             <ArrowRightOnRectangleIcon class="w-4 h-4" aria-hidden="true" />{{ signOutLabel }}
           </button>
         </div>
@@ -55,6 +55,8 @@
 </template>
 
 <script setup>
+// Menu row classes — in the template (not @apply) so Tailwind v3 and v4 both build it
+const ITEM = 'flex items-center gap-3 w-full px-4 py-2.5 text-sm font-semibold text-left hover:bg-surface-2 transition-colors cursor-pointer'
 import { ref, onMounted, onUnmounted, getCurrentInstance, resolveDynamicComponent } from 'vue'
 import { ChevronDownIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
 import AppAvatar from './AppAvatar.vue'
@@ -87,10 +89,6 @@ onUnmounted(() => document.removeEventListener('mousedown', onDoc))
 </script>
 
 <style scoped>
-.menu-item {
-  @apply flex items-center gap-3 w-full px-4 py-2.5 text-sm font-semibold text-fg-2 text-left
-    hover:bg-surface-2 hover:text-fg transition-colors cursor-pointer;
-}
 .menu-enter-active, .menu-leave-active { transition: opacity .15s ease, transform .15s ease; }
 .menu-enter-from, .menu-leave-to { opacity: 0; transform: translateY(-4px); }
 </style>

@@ -34,7 +34,12 @@ import pkg from '../../package.json'
 
 const version = pkg.version
 // Dark by default, like the apps; a saved choice wins
-const dark = ref((() => { try { return (localStorage.getItem('uikit-theme') ?? 'dark') === 'dark' } catch { return true } })())
+// ?theme=light|dark wins (screenshots, links), then a saved choice, then dark
+const dark = ref((() => {
+  const q = new URLSearchParams(location.search).get('theme')
+  if (q === 'light' || q === 'dark') return q === 'dark'
+  try { return (localStorage.getItem('uikit-theme') ?? 'dark') === 'dark' } catch { return true }
+})())
 watch(dark, (v) => {
   document.documentElement.classList.toggle('dark', v)
   try { localStorage.setItem('uikit-theme', v ? 'dark' : 'light') } catch {}
