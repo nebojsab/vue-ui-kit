@@ -110,9 +110,12 @@ export const navGroups = [
     ],
   },
   {
-    label: "Art",
+    label: "Templates",
     items: [
-      { slug: 'swoosh', label: "Swoosh", description: "Light trails for hero panels — own look in light and dark", icon: "⟋", color: '#8B6BFF' },
+      { slug: 'template-dashboard', label: "Dashboard", description: "App home — sidebar, KPIs, chart, table; bottom nav on phones", icon: "▦", color: '#6366F1' },
+      { slug: 'template-settings', label: "Settings", description: "Tabs, forms, toggles, team roles and a danger zone", icon: "⚙", color: '#E85EC4' },
+      { slug: 'template-sign-in', label: "Sign in", description: "Split screen — email, password, then a one-time code", icon: "→", color: '#F472B6' },
+      { slug: 'template-projects', label: "Projects", description: "List with filters, row menus, pagination and an edit drawer", icon: "≣", color: '#FBBF24' },
     ],
   },
   {

@@ -424,7 +424,7 @@ export interface AppSidebarProps {
   homeLabel?: string
   navLabel?: string
   toolsLabel?: string
-  /** Brand gradient when open, solid Flow blue / deep navy on the compact rail */
+  /** Hero gradient when open, solid indigo tint / deep indigo on the compact rail */
   brand?: boolean
   'onUpdate:collapsed'?: (...args: any[]) => any
 }
@@ -538,7 +538,7 @@ export interface AppUserMenuProps {
   role?: string
   items?: any[]
   signOutLabel?: string
-  'onSign:Out'?: (...args: any[]) => any
+  onSignOut?: (...args: any[]) => any
 }
 export declare const AppUserMenu: DefineComponent<AppUserMenuProps>
 
@@ -578,7 +578,7 @@ export interface DataTableProps {
   emptyText?: string
   /** Screen-reader caption for the table */
   caption?: string
-  'onRow:Click'?: (...args: any[]) => any
+  onRowClick?: (...args: any[]) => any
 }
 export declare const DataTable: DefineComponent<DataTableProps>
 
@@ -612,10 +612,6 @@ export interface LightStreakProps {
   paths?: any[]
 }
 export declare const LightStreak: DefineComponent<LightStreakProps>
-
-export interface SwooshProps {
-}
-export declare const Swoosh: DefineComponent<SwooshProps>
 
 export interface BrandLogoProps {
   /** Raw SVG strings (import '…/logo-wordmark.svg?raw') */

@@ -49,7 +49,7 @@
           <!-- When to use / When not to use -->
           <div v-if="current.whenToUse" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             <div class="rounded-card border border-success/30 bg-success/[0.06] p-5">
-              <p class="text-overline text-success mb-3 flex items-center gap-2"><CheckCircleIcon class="w-4 h-4" />When to use</p>
+              <p class="text-overline text-success mb-3 flex items-center gap-2"><CheckCircleIcon class="w-4 h-4" />{{ current.useLabel ?? 'When to use' }}</p>
               <ul class="space-y-2">
                 <li v-for="item in current.whenToUse" :key="item" class="text-sm text-fg-2 flex gap-2">
                   <span class="text-success flex-shrink-0" aria-hidden="true">•</span>{{ item }}
@@ -57,7 +57,7 @@
               </ul>
             </div>
             <div class="rounded-card border border-danger/30 bg-danger/[0.06] p-5">
-              <p class="text-overline text-danger mb-3 flex items-center gap-2"><XCircleIcon class="w-4 h-4" />When not to use</p>
+              <p class="text-overline text-danger mb-3 flex items-center gap-2"><XCircleIcon class="w-4 h-4" />{{ current.notLabel ?? 'When not to use' }}</p>
               <ul class="space-y-2">
                 <li v-for="item in current.whenNotTo" :key="item" class="text-sm text-fg-2 flex gap-2">
                   <span class="text-danger flex-shrink-0" aria-hidden="true">•</span>{{ item }}
@@ -139,10 +139,10 @@ import { iconsDoc } from './iconsDoc'
 import { moleculesDocs } from './docs/molecules'
 import { foundationsDocs } from './docs/foundations'
 import { guidesDocs } from './docs/guides'
+import { templatesDocs } from './docs/templates'
 import { navGroups } from '../nav'
 const territory = (region) => `Acme - ${region}`
 import AppButton from '@ds/components/AppButton.vue'
-import Swoosh from '@ds/art/Swoosh.vue'
 import AppBadge from '@ds/components/AppBadge.vue'
 import AppAvatar from '@ds/components/AppAvatar.vue'
 import AppInput from '@ds/components/AppInput.vue'
@@ -250,6 +250,7 @@ const componentData = {
   ...guidesDocs,
   ...foundationsDocs,
   ...moleculesDocs,
+  ...templatesDocs,
   icons: iconsDoc,
 
   // ── Button ──────────────────────────────────────────────────────────────
@@ -2287,34 +2288,6 @@ toast('Salesforce sync failed', 'danger')`,
     ],
   },
 
-  // ── Swoosh ───────────────────────────────────────────────────────────────
-  swoosh: {
-    title: 'Swoosh',
-    description: 'The "swoosh" — decorative light trails. A beam rises on the diagonal from the bottom edge to the right edge. Light and dark each have their own look: a white beam with a pale halo over an indigo and pink wash in light, a white-hot core with a violet glow over an indigo corner in dark. Static, fixed colours.',
-    whenToUse: ['Brand panels: the sign-in page, an empty hero, a splash', 'Inside a relative, overflow-hidden bg-brand-hero panel, absolutely positioned to fill it'],
-    whenNotTo: ["Don't put it behind body copy in the lower third — the beam runs there", "Don't use it in app chrome or cards; it's for one brand moment per screen", "Don't stack it with FlowLines — pick one"],
-    props: [
-      { name: 'class', type: 'String', default: '—', description: 'Size it to the panel: absolute inset-0 w-full h-full' },
-    ],
-    stories: [
-      {
-        name: 'Sign-in brand panel',
-        description: 'Sign-in hero panel. Switch the docs theme to see the light and dark versions.',
-        snippet: `<section class="relative overflow-hidden rounded-3xl border border-line bg-brand-hero p-12">
-  <Swoosh class="absolute inset-0 w-full h-full" />
-  <div class="relative">…logo, headline, copy…</div>
-</section>`,
-        demo: defineComponent({ setup() {
-          return () => h('section', { class: 'relative overflow-hidden rounded-3xl border border-line bg-brand-hero p-8 h-[420px] max-w-md flex flex-col justify-between' }, [
-            h(Swoosh, { class: 'absolute inset-0 w-full h-full' }),
-            h('p', { class: 'relative text-overline text-brand' }, 'Welcome back'),
-            h('h3', { class: 'relative font-display font-bold text-[34px] leading-[1.05] tracking-tight -mt-24' }, 'Every conversation, in one place.'),
-            h('p', { class: 'relative text-[12px] text-fg-muted' }, '© Acme Inc.'),
-          ])
-        } }),
-      },
-    ],
-  },
 
   // ── Sidebar ──────────────────────────────────────────────────────────────
   sidebar: {

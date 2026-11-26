@@ -4,8 +4,8 @@
       role="tablist"
       :aria-label="ariaLabel"
       :class="variant === 'pills'
-        ? 'inline-flex max-w-full gap-1 p-1 rounded-control bg-surface-2 border border-line overflow-x-auto'
-        : 'flex gap-1 border-b border-line overflow-x-auto overflow-y-hidden'"
+        ? 'inline-flex max-w-full gap-1 p-1 rounded-control bg-surface-2 border border-line overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
+        : 'flex gap-1 border-b border-line overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'"
       @keydown="onKeydown"
     >
       <button

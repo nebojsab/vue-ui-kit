@@ -61,7 +61,6 @@ export { default as StatCard } from './components/StatCard.vue'
 // ── Brand art ────────────────────────────────────────────────────────────
 export { default as FlowLines } from './art/FlowLines.vue'
 export { default as LightStreak } from './art/LightStreak.vue'
-export { default as Swoosh } from './art/Swoosh.vue'
 
 // ── Logo ─────────────────────────────────────────────────────────────────
 export { default as BrandLogo } from './logo/BrandLogo.vue'

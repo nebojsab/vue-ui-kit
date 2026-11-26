@@ -29,12 +29,20 @@ const urls = [`${SITE}/`]
 for (const group of navGroups) {
   for (const item of group.items) {
     const url = `${SITE}/${item.slug}/`
-    const kind = /Foundations|Get started/.test(group.label) ? 'Guide' : 'Vue 3 component'
+    const kind = /Foundations|Get started/.test(group.label) ? 'Guide' : group.label === 'Templates' ? 'Page template' : 'Vue 3 component'
     const description = `${item.label}: ${item.description}. ${kind} in Vue UI Kit, an open-source Vue 3 + Tailwind CSS library with light and dark themes.`
     mkdirSync(`${OUT}/${item.slug}`, { recursive: true })
     writeFileSync(`${OUT}/${item.slug}/index.html`, page({ title: `${item.label} — Vue UI Kit`, description, url }))
     urls.push(url)
   }
+}
+
+// Full-screen template previews (embedded by the template pages) — not for search results
+const templateNames = navGroups.find((g) => g.label === 'Templates')?.items.map((i) => i.slug.replace(/^template-/, '')) ?? []
+for (const name of templateNames) {
+  mkdirSync(`${OUT}/preview/${name}`, { recursive: true })
+  const h = html.replace('<meta charset="UTF-8" />', '<meta charset="UTF-8" />\n    <meta name="robots" content="noindex" />')
+  writeFileSync(`${OUT}/preview/${name}/index.html`, h)
 }
 
 const today = new Date().toISOString().slice(0, 10)

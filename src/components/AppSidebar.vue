@@ -121,7 +121,7 @@ const props = defineProps({
   homeLabel:   { type: String, default: 'Home' },
   navLabel:    { type: String, default: 'Main' },
   toolsLabel:  { type: String, default: 'Tools' },
-  /** Brand gradient when open, solid Flow blue / deep navy on the compact rail */
+  /** Hero gradient when open, solid indigo tint / deep indigo on the compact rail */
   brand:       { type: Boolean, default: false },
 })
 defineEmits(['update:collapsed'])

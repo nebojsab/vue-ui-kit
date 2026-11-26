@@ -8,6 +8,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', component: () => import('./views/HomeView.vue') },
+    { path: '/preview/:name', component: () => import('./views/PreviewView.vue') },
     { path: '/:slug', component: () => import('./views/ComponentView.vue') },
   ],
   scrollBehavior: () => ({ top: 0 }),
