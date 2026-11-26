@@ -3,7 +3,7 @@
 All notable changes to this project. The format follows [Keep a Changelog](https://keepachangelog.com/)
 and the project uses [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [2.0.1] — 2026-11-26 · [npm](https://www.npmjs.com/package/@nebojsab/vue-ui-kit/v/2.0.1)
 
 ### Fixed
 - `AppSidebar`: the logo is centred on the compact rail, whatever the mark's width. It used to sit off-centre.

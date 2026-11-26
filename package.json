@@ -1,6 +1,6 @@
 {
   "name": "@nebojsab/vue-ui-kit",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue 3 UI kit — design tokens, Tailwind preset, components and art, light and dark",
   "type": "module",
   "license": "MIT",
