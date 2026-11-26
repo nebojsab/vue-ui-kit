@@ -15,11 +15,11 @@
       c.width,
     ]"
   >
-    <!-- Logo: full on the panel, compact on the rail -->
+    <!-- Logo: full on the panel, compact and centred on the rail -->
     <component
       :is="linkTag"
       v-bind="linkProps(homeTo)"
-      :class="['flex items-center px-4 md:px-[19px] h-[72px] flex-shrink-0 transition-all duration-200 ease-out', c.logoPad]"
+      :class="['flex items-center px-4 md:px-0 md:justify-center h-[72px] flex-shrink-0 transition-all duration-200 ease-out', c.logoPad]"
       :aria-label="homeLabel"
     >
       <span :class="[LABEL, c.label]"><slot name="logo" :collapsed="false" /></span>
@@ -169,7 +169,7 @@ const c = computed(() => props.collapsed
       rail: 'hidden md:block lg:hidden',
       railFlex: 'hidden md:flex lg:hidden',
       itemGap: 'gap-3 md:gap-0 lg:gap-3',
-      logoPad: 'lg:px-6',
+      logoPad: 'lg:px-6 lg:justify-start', // rail: centred mark; open panel: full logo from the left
       navPad: 'lg:px-4',
       bottomPad: 'lg:p-4',
       justify: 'lg:justify-start',
