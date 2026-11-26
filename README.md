@@ -6,13 +6,15 @@
 
 **Accessible Vue 3 + Tailwind CSS components with light and dark themes, design tokens and live theming.**
 
+[![npm version](https://img.shields.io/npm/v/@nebojsab/vue-ui-kit.svg?color=6366F1)](https://www.npmjs.com/package/@nebojsab/vue-ui-kit)
+[![npm downloads](https://img.shields.io/npm/dm/@nebojsab/vue-ui-kit.svg?color=6366F1)](https://www.npmjs.com/package/@nebojsab/vue-ui-kit)
 [![License: MIT](https://img.shields.io/badge/license-MIT-6366F1.svg)](LICENSE)
 [![Docs](https://github.com/nebojsab/vue-ui-kit/actions/workflows/docs-pages.yml/badge.svg)](https://nebojsab.github.io/vue-ui-kit/)
 ![Vue 3](https://img.shields.io/badge/Vue-3.5-42b883.svg)
 ![Tailwind CSS v3 and v4](https://img.shields.io/badge/Tailwind_CSS-v3_%7C_v4-38bdf8.svg)
 ![TypeScript types](https://img.shields.io/badge/types-included-3178c6.svg)
 
-[**Live docs**](https://nebojsab.github.io/vue-ui-kit/) · [Theming playground](https://nebojsab.github.io/vue-ui-kit/theming/) · [Principles](https://nebojsab.github.io/vue-ui-kit/principles/)
+[**Live docs**](https://nebojsab.github.io/vue-ui-kit/) · [npm](https://www.npmjs.com/package/@nebojsab/vue-ui-kit) · [Theming playground](https://nebojsab.github.io/vue-ui-kit/theming/) · [Principles](https://nebojsab.github.io/vue-ui-kit/principles/)
 
 </div>
 
