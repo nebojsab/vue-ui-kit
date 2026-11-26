@@ -169,26 +169,21 @@ const navGroups = [
     label: 'Gamification',
     items: [
       { slug: 'period-tabs', label: 'Period Tabs', description: 'Week / Month / Quarter / Year switch with elapsed bars', icon: '▤', color: '#6366F1' },
+      { slug: 'countdown',   label: 'Countdown',   description: 'Live countdown in tabular tiles — role="timer"', icon: '◷', color: '#FBBF24' },
+      { slug: 'reward-box',  label: 'Reward Box',  description: 'Animated bonus box — idle wiggle, claim burst', icon: '◆', color: '#FBBF24' },
     ],
   },
   {
     label: 'Feedback',
     items: [
       { slug: 'empty-state', label: 'Empty State', description: 'Zero-state UI with icon, title, and action slot', icon: '○', color: '#6B7280' },
+      { slug: 'xp-bar',      label: 'XP Bar',      description: 'Level progress in gold with points label', icon: '▤', color: '#FBBF24' },
     ],
   },
   {
     label: 'Composables',
     items: [
       { slug: 'composables', label: 'Composables', description: 'useInfiniteList, useStuck, useFloating', icon: 'ƒ', color: '#E85EC4' },
-    ],
-  },
-  {
-    label: 'Deprecated',
-    items: [
-      { slug: 'countdown',  label: 'Countdown',  description: 'Deprecated since 1.3 — removed in 2.0', icon: '◷', color: '#6B7280' },
-      { slug: 'xp-bar',     label: 'XP Bar',     description: 'Deprecated since 1.3 — removed in 2.0', icon: '▤', color: '#6B7280' },
-      { slug: 'reward-box', label: 'Reward Box', description: 'Deprecated since 1.3 — removed in 2.0', icon: '◆', color: '#6B7280' },
     ],
   },
 ]

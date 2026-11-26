@@ -26,7 +26,7 @@
               :class="route.params.slug === item.slug
                 ? 'bg-surface-2 text-fg font-bold ring-1 ring-inset ring-line'
                 : 'text-subtle hover:text-fg hover:bg-surface-2'"
-            >{{ item.label }}<span v-if="componentData[item.slug]?.deprecated" class="ml-1.5 text-[10px] font-bold uppercase tracking-wide text-warning">Deprecated</span></router-link>
+            >{{ item.label }}</router-link>
           </div>
 
           <div class="px-3 pt-4 mt-4 border-t border-line">
@@ -45,14 +45,6 @@
             <p class="text-sm text-subtle mt-1 max-w-2xl">{{ current.description }}</p>
           </div>
 
-          <!-- Deprecated notice -->
-          <div v-if="current.deprecated" class="rounded-card border border-warning/40 bg-warning/[0.08] p-5 mb-8 flex gap-3" role="note">
-            <ExclamationTriangleIcon class="w-5 h-5 text-warning flex-shrink-0" aria-hidden="true" />
-            <div>
-              <p class="text-sm font-bold text-fg flex items-center gap-2">Deprecated <AppBadge color="warning" size="xs">{{ current.deprecated.since }} → removed in {{ current.deprecated.removed }}</AppBadge></p>
-              <p class="text-sm text-fg-2 mt-1">{{ current.deprecated.note }}</p>
-            </div>
-          </div>
 
           <!-- When to use / When not to use -->
           <div v-if="current.whenToUse" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -138,7 +130,7 @@ import { ref, computed, defineComponent, h } from 'vue'
 import { useRoute } from 'vue-router'
 import {
   TableCellsIcon, CalendarDaysIcon, ViewColumnsIcon, Squares2X2Icon, BanknotesIcon, BoltIcon,
-  BriefcaseIcon, BeakerIcon, MegaphoneIcon, CheckCircleIcon, XCircleIcon, ExclamationTriangleIcon,
+  BriefcaseIcon, BeakerIcon, MegaphoneIcon, CheckCircleIcon, XCircleIcon,
   HomeIcon, ListBulletIcon, BuildingOffice2Icon, UsersIcon, BookOpenIcon, Cog6ToothIcon,
   ArrowTrendingUpIcon, ViewfinderCircleIcon, BuildingStorefrontIcon, UserGroupIcon, MagnifyingGlassIcon,
 } from '@heroicons/vue/24/outline'
@@ -280,26 +272,21 @@ const navGroups = [
     label: 'Gamification',
     items: [
       { slug: 'period-tabs', label: 'Period Tabs' },
+      { slug: 'countdown',   label: 'Countdown' },
+      { slug: 'reward-box',  label: 'Reward Box' },
     ],
   },
   {
     label: 'Feedback',
     items: [
       { slug: 'progress', label: 'Progress Bar' },
+      { slug: 'xp-bar',   label: 'XP Bar' },
     ],
   },
   {
     label: 'Composables',
     items: [
       { slug: 'composables', label: 'Composables' },
-    ],
-  },
-  {
-    label: 'Deprecated',
-    items: [
-      { slug: 'countdown',   label: 'Countdown' },
-      { slug: 'xp-bar',      label: 'XP Bar' },
-      { slug: 'reward-box',  label: 'Reward Box' },
     ],
   },
 ]
@@ -348,8 +335,6 @@ const DEMO_PERM_GROUPS = [
   ] },
 ]
 
-// Deprecated components (gamification) — same notice on every page
-const DEPRECATED = { since: '1.3', removed: '2.0', note: 'Gamification component; no app uses it any more. Still exported so existing imports keep working — don\'t use it in new code.' }
 
 function removeTag(tag) {
   const idx = demoTags.value.indexOf(tag)
@@ -1649,7 +1634,7 @@ COMPANY_STYLE.reseller.soft      // 'bg-brand/15 text-brand'
     whenNotTo: [
       "Don't use Inter Light below 18px — it gets too thin in tables and forms",
       "Don't add another typeface — Inter is the whole system",
-      "Don't go below 12px for text — text-xs (10px) is deprecated for labels",
+      "Don't go below 12px for text — text-2xs (10px) is too small for labels",
       "Don't use emoji as icons — use heroicons",
     ],
     stories: [
@@ -1657,7 +1642,7 @@ COMPANY_STYLE.reseller.soft      // 'bg-brand/15 text-brand'
         name: 'Type Scale',
         description: 'Bold for hierarchy, Regular for reading, Medium caps for labels, tabular figures for time.',
         snippet: `<h1 class="font-display font-bold text-[34px] tracking-tight">Good morning, Luka</h1>
-<h2 class="font-display font-bold text-[22px]">Weekly race</h2>
+<h2 class="font-display font-bold text-[22px]">Weekly challenge</h2>
 <h3 class="font-display font-semibold text-xl">Recent activity</h3>
 <p class="text-base text-fg-2">Body copy</p>
 <p class="text-overline text-fg-2">Pipeline generated</p>
@@ -1666,7 +1651,7 @@ COMPANY_STYLE.reseller.soft      // 'bg-brand/15 text-brand'
         demo: defineComponent({ setup() {
           const scale = [
             { cls: 'font-display font-bold text-[34px] tracking-tight', label: 'Inter · 34 / 700', sample: 'Good morning' },
-            { cls: 'font-display font-bold text-[22px]', label: 'Inter · 22 / 700', sample: 'Weekly race' },
+            { cls: 'font-display font-bold text-[22px]', label: 'Inter · 22 / 700', sample: 'Weekly challenge' },
             { cls: 'font-display font-semibold text-xl', label: 'Inter · 20 / 600', sample: 'Recent activity' },
             { cls: 'text-lg font-light text-fg-2', label: 'Inter · 18 / 300', sample: 'Every activity moves you up the grid.' },
             { cls: 'text-lg font-extrabold', label: 'Inter · 18 / 800', sample: 'Lukas Brenner' },
@@ -1879,14 +1864,13 @@ mb-8  → 32px  between page sections`,
   // ── Countdown ────────────────────────────────────────────────────────────
   countdown: {
     title: 'Countdown',
-    deprecated: DEPRECATED,
     description: 'Live countdown in mono tiles. Ticks every second when seconds are shown, otherwise every 30 seconds. Exposed to assistive tech as role="timer" with a readable label.',
     whenToUse: [
       'Time left in a race, promotion or bonus window',
     ],
     whenNotTo: [
       "Don't use for durations that already passed — show a date instead",
-      "Don't show seconds unless the page is about the deadline (Race page yes, Metrics no)",
+      "Don't show seconds unless the page is about the deadline (a challenge page yes, a dashboard no)",
     ],
     props: [
       { name: 'to', type: 'Date | String | Number', default: '—', description: 'Target moment' },
@@ -1898,9 +1882,9 @@ mb-8  → 32px  between page sections`,
     stories: [
       {
         name: 'Sizes',
-        description: 'sm in compact headers, md with seconds on the Race page.',
-        snippet: `<AppCountdown :to="race.current.end" label="Ends in" size="sm" />
-<AppCountdown :to="race.current.end" :units="['days','hours','minutes','seconds']" label="Race ends in" />`,
+        description: 'sm in compact headers, md with seconds on a dedicated page.',
+        snippet: `<AppCountdown :to="period.end" label="Ends in" size="sm" />
+<AppCountdown :to="period.end" :units="['days','hours','minutes','seconds']" label="Challenge ends in" />`,
         demo: defineComponent({ setup() {
           const to = Date.now() + 3 * 86_400_000 + 14 * 3_600_000 + 22 * 60_000
           return () => h('div', { class: 'flex flex-wrap items-end gap-8' }, [
@@ -1915,14 +1899,13 @@ mb-8  → 32px  between page sections`,
   // ── XP Bar ───────────────────────────────────────────────────────────────
   'xp-bar': {
     title: 'XP Bar',
-    deprecated: DEPRECATED,
-    description: 'Level progress in gold. Always feed it from auth.levelInfo (getLevelInfo in useAuthStore) — the single source of truth for level, percentage and points to the next level.',
+    description: 'Level progress in gold. Feed it from one source of truth in your app (level, percentage and points to the next level) so every bar agrees.',
     whenToUse: [
-      'Progress inside the current level — topbar, KPI card, profile, race page',
+      'Progress inside the current level — topbar, KPI card, profile, leaderboard',
     ],
     whenNotTo: [
       "Don't use for non-reward progress (quota, upload) — use Progress Bar",
-      "Don't compute level or % in a component — read auth.levelInfo",
+      "Don't compute level or % in a component — read it from one shared store",
     ],
     props: [
       { name: 'level', type: 'Number', default: '—', description: 'Current level' },
@@ -1951,7 +1934,6 @@ mb-8  → 32px  between page sections`,
   // ── Reward Box ───────────────────────────────────────────────────────────
   'reward-box': {
     title: 'Reward Box',
-    deprecated: DEPRECATED,
     description: 'Animated daily-bonus box. While a reward is waiting it periodically wiggles, pulses a gold glow, sweeps a shimmer and pings its dot. Clicking it bursts particles and a floating "+N", then settles into the claimed state. All motion is turned off under prefers-reduced-motion.',
     whenToUse: [
       'A reward the user can claim right now (daily bonus)',

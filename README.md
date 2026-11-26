@@ -77,7 +77,7 @@ Dark mode: toggle the `dark` class on `<html>`. Wrap a section in `.theme-dark` 
 **Floating panels:** `AppPopover` and `AppCombobox` lists are teleported to `<body>` with fixed
 coordinates, so modals and scrolling cards can't clip them. They open upwards when there's no room below.
 
-**Deprecated (removed in 2.0):** `AppRewardBox`, `AppXpBar`, `AppCountdown` (gamification).
+**Gamification:** `AppPeriodTabs`, `AppCountdown`, `AppRewardBox` and `AppXpBar` use the gold `reward` tokens for points, levels and time-boxed challenges.
 
 ## Working on the kit
 

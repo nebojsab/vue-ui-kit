@@ -21,7 +21,7 @@
 <script setup>
 import { computed } from 'vue'
 
-/** Level progress — gold, because XP is a reward. Feed it from auth.levelInfo. */
+/** Level progress — gold, because XP is a reward. Feed it from one shared source of level data. */
 const props = defineProps({
   level:      { type: Number, required: true },
   /** 0–100 progress inside the current level */
